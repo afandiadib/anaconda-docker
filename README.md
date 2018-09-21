@@ -2,6 +2,8 @@
 
 My personalized miniconda package. Softwares included are for biomolecular dynamics studies. I used jupyter notebook most of the time and used ipython for automation.
 
+There are two version available: nouveau and nvidia-supported container
+
 To run jupyter notebook, I create a bash script as follow:
 ```bash
 #!/bin/bash
