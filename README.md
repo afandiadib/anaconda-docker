@@ -2,7 +2,7 @@
 
 My personalized miniconda package. Softwares included are for biomolecular dynamics studies. I used jupyter notebook most of the time and used ipython for automation.
 
-- To run jupyter notebook, I create a bash script as follow:
+To run jupyter notebook, I create a bash script as follow:
 
     #!/bin/bash
 
@@ -26,11 +26,11 @@ My personalized miniconda package. Softwares included are for biomolecular dynam
                --publish $port:$port \
                afandiadib/conda:nvidia jupyter notebook --port=$port --no-browser --ip=0.0.0.0
 
-- To run ipython, I create an alias in .bashrc file:
+To run ipython, I create an alias in .bashrc file: -
 
     alias ipython=docker run --rm --workdir=\`pwd\` --volume=\`pwd\`:\`pwd\` afandiadib/conda:nvidia ipython
 
-- To run interactively:
+To run interactively: -
 
     docker run -it --rm \
                --user=$(id -u) \
