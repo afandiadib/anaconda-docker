@@ -4,6 +4,12 @@ My personalized miniconda package. Softwares included are for biomolecular dynam
 
 There are two version available: nouveau and nvidia-supported container. You need to install nvidia driver and nvidia-docker2 on your host to use the nvidia-supported container.
 
+To download the container:
+```
+docker pull afandiadib/conda:nvidia
+docker pull afandiadib/conda:nouveau
+```
+
 To run jupyter notebook, I create a bash script as follow:
 ```bash
 #!/bin/bash
