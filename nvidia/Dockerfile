@@ -2,7 +2,7 @@ FROM nvidia/cudagl:9.0-runtime-ubuntu16.04
 MAINTAINER "Adib Afandi bin Abdullah <fendy90.oscura@gmail.com>"
 
 RUN apt-get -y update && \
-    apt-get -y install wget libx11-6 libgl1-mesa-glx libglu1-mesa libxmu6 libxi6 libxcursor1 && \
+    apt-get -y install wget bzip2 libx11-6 libgl1-mesa-glx libglu1-mesa libxmu6 libxi6 libxcursor1 && \
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x Miniconda3-latest-Linux-x86_64.sh && \
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
@@ -19,7 +19,7 @@ RUN apt-get -y update && \
     conda install -y -c ambermd pytraj && \
     conda update -y --all && conda clean -p -y && \
 
-    apt-get -y purge wget && \
+    apt-get -y purge wget bzip2 && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && \
     
     chmod -R 777 /opt
