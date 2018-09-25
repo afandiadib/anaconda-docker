@@ -1,8 +1,8 @@
-FROM nvidia/opengl:1.0-glvnd-runtime-ubuntu18.04
+FROM nvidia/cudagl:9.0-runtime-ubuntu16.04
 MAINTAINER "Adib Afandi bin Abdullah <fendy90.oscura@gmail.com>"
 
 RUN apt-get -y update && \
-    apt-get -y install wget && \
+    apt-get -y install wget libx11-6 libgl1-mesa-glx libglu1-mesa libxmu6 libxi6 libxcursor1 && \
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x Miniconda3-latest-Linux-x86_64.sh && \
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
