@@ -2,7 +2,7 @@ FROM ubuntu
 MAINTAINER "Adib Afandi bin Abdullah <fendy90.oscura@gmail.com>"
 
 RUN apt-get -y update && \
-    apt-get -y install wget && \
+    apt-get -y install wget libx11-6 libgl1-mesa-glx libglu1-mesa libxmu6 libxi6 libxcursor1 && \
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x Miniconda3-latest-Linux-x86_64.sh && \
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
@@ -17,6 +17,7 @@ RUN apt-get -y update && \
     conda install -y -c conda-forge matplotlib && \
     conda install -y -c openbabel openbabel && \
     conda install -y -c ambermd pytraj && \
+    conda install -y -c schrodinger pymol && \
     conda update -y --all && conda clean -p -y && \
 
     apt-get -y purge wget && \
