@@ -18,6 +18,7 @@ RUN apt-get -y update && \
     conda install -y -c openbabel openbabel && \
     conda install -y -c ambermd pytraj && \
     conda install -y -c mordred-descriptor mordred && \
+    conda install -y -c schrodinger pymol && \
     conda update -y --all && conda clean -p -y && \
 
     apt-get -y purge wget bzip2 && \
