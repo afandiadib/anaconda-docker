@@ -1,4 +1,4 @@
-FROM nvidia/cudagl:9.0-runtime-ubuntu16.04
+FROM nvidia/cudagl:9.2-devel-ubuntu18.04
 MAINTAINER "Adib Afandi bin Abdullah <fendy90.oscura@gmail.com>"
 
 RUN apt-get -y update && \
@@ -10,7 +10,7 @@ RUN apt-get -y update && \
     export PATH="/opt/conda/bin:$PATH" && \
     conda update -n base -c defaults conda && \
     conda install -y -c omnia openmm && \ 
-    conda install -y -c omnia openmm && \
+    conda install --yes -c omnia -c omnia/label/dev cuda92 openmm==7.3.0 && \
     conda install -y -c omnia parmed && \
     conda install -y -c anaconda scipy && \
     conda install -y -c anaconda jupyter && \
