@@ -10,7 +10,7 @@ RUN apt-get -y update && \
     export PATH="/opt/conda/bin:$PATH" && \
     conda update -n base -c defaults conda && \
     conda install -y -c omnia openmm && \ 
-    conda install -c omnia/label/betacuda92 openmm && \
+    conda install -y -c omnia/label/betacuda92 openmm && \
     conda install -y -c omnia parmed && \
     conda install -y -c anaconda scipy && \
     conda install -y -c anaconda jupyter && \
