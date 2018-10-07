@@ -6,19 +6,21 @@ RUN apt-get -y update && \
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh && \
     chmod +x Miniconda3-latest-Linux-x86_64.sh && \
     bash Miniconda3-latest-Linux-x86_64.sh -b -p /opt/conda && \
+    
+    #opencl from nvidia/opencl
+    apt-get install -y --no-install-recommends ocl-icd-libopencl1 clinfo && \
+    mkdir -p /etc/OpenCL/vendors && \
+    echo "libnvidia-opencl.so.1" > /etc/OpenCL/vendors/nvidia.icd && \
 
     export PATH="/opt/conda/bin:$PATH" && \
     conda update -n base -c defaults conda && \
     conda install -y -c omnia openmm && \ 
     conda install -y -c omnia/label/betacuda92 openmm && \
-    conda install -y -c omnia parmed && \
     conda install -y -c anaconda scipy && \
     conda install -y -c anaconda jupyter && \
     conda install -y -c conda-forge matplotlib && \
     conda install -y -c openbabel openbabel && \
-    conda install -y -c ambermd pytraj && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
-    conda install -y -c schrodinger pymol && \
     conda update -y --all && conda clean -p -y && \
 
     apt-get -y purge wget bzip2 && \
