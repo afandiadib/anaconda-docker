@@ -22,7 +22,7 @@ RUN apt-get -y update && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
     conda update -y --all && conda clean -p -y && \
 
-    apt-get -y purge wget bzip2 && \
+    apt-get -y purge wget && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && \
     
     chmod -R 777 /opt
