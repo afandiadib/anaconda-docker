@@ -14,22 +14,21 @@ RUN apt-get -y update && \
     conda install -y -c anaconda jupyter && \
     conda install -y -c conda-forge matplotlib && \
     conda install -y -c openbabel openbabel && \
-    conda install -y -c rdkit -c mordred-descriptor mordred && \
-    conda update -y --all && conda clean -p -y
+    conda install -y -c rdkit -c mordred-descriptor mordred
 
 ENV PATH="/opt/conda/bin:$PATH"
 
 #pymol
-RUN apt-get -y install git libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
+RUN apt-get -y install --no-install-recommends git && \
+    apt-get -y install libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
     conda install -y -c conda-forge pmw && \
-    conda install -y -c anaconda pyqt && \ 
+    conda install -y -c anaconda pyqt && \
     git clone https://github.com/schrodinger/pymol-open-source.git && \
     cd pymol-open-source && \
     python setup.py install --prefix=/opt/conda && \
     apt-get -y purge git wget && \
     apt-get -y autoremove && apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* && \
+    conda update -y --all && conda clean -p -y && \
     rm -rf /pymol-open-source && \
     chmod -R 777 /opt
-
-ENV QT_XKB_CONFIG_ROOT /usr/share/X11/xkb
