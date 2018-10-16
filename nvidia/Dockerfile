@@ -25,6 +25,19 @@ RUN apt-get -y update && \
     apt-get -y purge wget && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && \
     
+    #pymol
+    apt-get -y install --no-install-recommends git && \
+    apt-get -y install libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
+    conda install -y -c conda-forge pmw && \
+    conda install -y -c anaconda pyqt && \
+    git clone https://github.com/schrodinger/pymol-open-source.git && \
+    cd pymol-open-source && \
+    python setup.py install --prefix=/opt/conda && \
+    apt-get -y purge git wget && \
+    apt-get -y autoremove && apt-get -y clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    conda update -y --all && conda clean -p -y && \
+    rm -rf /pymol-open-source && \
     chmod -R 777 /opt
-
+    
 ENV PATH="/opt/conda/bin:$PATH"
