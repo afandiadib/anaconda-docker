@@ -18,9 +18,14 @@ RUN apt-get -y update && \
 
 ENV PATH="/opt/conda/bin:$PATH"
 
-#pymol
+#NGLView
 RUN apt-get -y install --no-install-recommends git && \
-    apt-get -y install libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
+    git clone https://github.com/arose/nglview && \
+    cd nglview && \
+    python setup.py install
+
+#pymol
+RUN apt-get -y install libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
     conda install -y -c conda-forge pmw && \
     conda install -y -c anaconda pyqt && \
     git clone https://github.com/schrodinger/pymol-open-source.git && \
