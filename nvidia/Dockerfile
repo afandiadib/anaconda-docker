@@ -20,9 +20,14 @@ RUN apt-get -y update && \
     conda install -y -c conda-forge matplotlib && \
     conda install -y -c openbabel openbabel && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
+    
+    #NGLView
+    apt-get -y install --no-install-recommends git && \
+    git clone https://github.com/arose/nglview && \
+    cd nglview && \
+    python setup.py install && \
    
     #pymol
-    apt-get -y install --no-install-recommends git && \
     apt-get -y install libglew-dev freeglut3-dev libpng-dev libfreetype6-dev libxml2-dev libmsgpack-dev libglm-dev && \
     conda install -y -c conda-forge pmw && \
     conda install -y -c anaconda pyqt && \
