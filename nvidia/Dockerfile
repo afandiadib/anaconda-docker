@@ -21,6 +21,7 @@ RUN apt-get -y update && \
     conda install -y -c openbabel openbabel && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
     conda install -y -c ambermd pytraj && \
+    conda install -y -c omnia parmed && \
     
     #NGLView
     apt-get -y install --no-install-recommends git && \
