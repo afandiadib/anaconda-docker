@@ -20,6 +20,7 @@ RUN apt-get -y update && \
     conda install -y -c conda-forge matplotlib && \
     conda install -y -c openbabel openbabel && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
+    conda install -y -c ambermd pytraj && \
     
     #NGLView
     apt-get -y install --no-install-recommends git && \
