@@ -14,7 +14,6 @@ RUN apt-get -y update && \
 
     export PATH="/opt/conda/bin:$PATH" && \
     conda update -n base -c defaults conda && \
-    conda install -y -c omnia -c conda-forge openmm && \ 
     conda install -y -c anaconda scipy && \
     conda install -y -c anaconda jupyter && \
     conda install -y -c conda-forge matplotlib && \
@@ -22,6 +21,7 @@ RUN apt-get -y update && \
     conda install -y -c rdkit -c mordred-descriptor mordred && \
     conda install -y -c ambermd pytraj && \
     conda install -y -c omnia parmed && \
+    conda install -y -c omnia -c conda-forge openmm && \ 
     
     #NGLView
     apt-get -y install --no-install-recommends git && \
