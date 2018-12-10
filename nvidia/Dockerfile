@@ -35,14 +35,15 @@ RUN apt-get -y update && \
     conda install -y -c anaconda pyqt && \
     git clone https://github.com/schrodinger/pymol-open-source.git && \
     cd pymol-open-source && \
-    python setup.py install --prefix=/opt/conda && \
+    python setup.py install --prefix=/opt/conda
     
-    apt-get -y purge git wget && \
+RUN apt-get -y install vim-tiny
+
+RUN apt-get -y purge git wget && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && \
     conda update -y --all && conda clean -p -y && \
     
     rm -rf /pymol-open-source && \
     chmod -R 777 /opt
-    
     
 ENV PATH="/opt/conda/bin:$PATH"
