@@ -41,9 +41,9 @@ RUN apt-get -y install vim-tiny
 
 RUN apt-get -y purge git wget && \
     apt-get -y autoremove && apt-get -y clean && rm -rf /var/lib/apt/lists/* && \
-    conda update -y --all && conda clean -p -y && \
+    conda update -y --all && conda clean -p -y
     
-    rm -rf /pymol-open-source && \
+RUN rm -rf /pymol-open-source && \
     chmod -R 777 /opt
     
 ENV PATH="/opt/conda/bin:$PATH"
